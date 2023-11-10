@@ -6,7 +6,8 @@ import (
 )
 
 func main() {
-	service := frontend.LoadFile("inventory.authz")
+	inventory := frontend.LoadFile("inventory.authz")
+	dispatcher := frontend.LoadFile("dispatcher.authz")
 
-	backend.WriteOutput("output.zed", []*frontend.Service{service})
+	backend.WriteOutput("output.zed", []*frontend.Service{inventory, dispatcher})
 }

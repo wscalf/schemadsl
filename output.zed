@@ -49,6 +49,7 @@ definition role {
 
 	relation inventory_host_read: user:*
 	relation inventory_host_write: user:*
+	relation playbook_dispatcher_run_view_runs: user:*
 
 }
 
@@ -63,6 +64,7 @@ definition role_binding {
 
 	permission inventory_host_read = subject & granted->inventory_host_read
 	permission inventory_host_write = subject & granted->inventory_host_write
+	permission playbook_dispatcher_run_view_runs = subject & granted->playbook_dispatcher_run_view_runs
 
 }
 
@@ -106,6 +108,7 @@ definition workspace {
 
 	permission inventory_host_read = user_grant->inventory_host_read + parent->inventory_host_read
 	permission inventory_host_write = user_grant->inventory_host_write + parent->inventory_host_write
+	permission playbook_dispatcher_run_view_runs = user_grant->playbook_dispatcher_run_view_runs + parent->playbook_dispatcher_run_view_runs
 
 }
 
@@ -189,5 +192,11 @@ definition inventory/host {
 
 	permission read = workspace->inventory_host_read
 	permission write = workspace->inventory_host_write
+}
+
+definition playbook_dispatcher/run {
+	relation workspace: workspace
+
+	permission view_runs = workspace->playbook_dispatcher_run_view_runs
 }
 

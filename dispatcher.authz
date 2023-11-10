@@ -1,0 +1,11 @@
+version 1
+service playbook_dispatcher
+
+import inventory
+
+asset run {
+    depends on inventory/host as h
+
+    private permission view_runs
+    permission view: view_runs and h.view
+}

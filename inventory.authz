@@ -1,7 +1,16 @@
 version 1
 service inventory
 
-public asset host {
-    permission read
-    permission write
+permission read_all_assets
+permission write_all_assets
+
+permission read_all_hosts
+permission write_all_hosts
+
+asset host {
+    private permission read
+    permission view: read or read_all_hosts or read_all_assets
+    
+    private permission write
+    permission update: write or write_all_hosts or write_all_assets
 }

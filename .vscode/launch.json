@@ -15,7 +15,7 @@
             "name": "Debug ANTLR4 grammar",
             "type": "antlr-debug",
             "request": "launch",
-            "input": "inventory.authz",
+            "input": "dispatcher.authz",
             "grammar": "authz.g4",
             "startRule": "file",
             "visualParseTree": true
