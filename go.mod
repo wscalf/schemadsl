@@ -1,6 +1,6 @@
 module schemadsl
 
-go 1.21.3
+go 1.22.3
 
 require github.com/antlr4-go/antlr/v4 v4.13.0
 
